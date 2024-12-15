@@ -1,0 +1,48 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.0'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.mdrsolutions'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-activemq'
+	implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	implementation 'org.apache.activemq:activemq-broker'
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+	implementation 'org.springframework:spring-oxm:6.2.0'
+	implementation 'com.thoughtworks.xstream:xstream:1.4.21'
+
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'javax.servlet:jstl:1.2'
+
+	implementation 'org.webjars:bootstrap:5.3.3'
+	implementation 'org.webjars:jquery:3.3.1'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	compileOnly 'org.projectlombok:lombok:1.18.36'
+	annotationProcessor 'org.projectlombok:lombok:1.18.36'
+
+	testCompileOnly 'org.projectlombok:lombok:1.18.36'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
+	testCompileOnly 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.boot:spring-boot-dependencies:2.6.1"
+	}
+}
